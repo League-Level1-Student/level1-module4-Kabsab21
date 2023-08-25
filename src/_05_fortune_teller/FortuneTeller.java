@@ -5,9 +5,11 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import game_tools.Sound;
@@ -28,7 +30,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         // 3. Complete the begin() method in the FortuneTellerRunner class
         
         // 4. add a mouse listener to the frame
-        
+        frame.addMouseListener(this);
     }
 
     @Override
@@ -37,7 +39,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         int mouseY = e.getY();
         
         // 5. Print the mouseX variable
-        
+        System.out.println(mouseX+" "+ mouseY);
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
         // 7. Adjust your secret location co-ordinates here:
@@ -47,12 +49,26 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
             // 8. Find a spooky sound and put it in your _05_fortune_teller package (freesound.org)
-            //    play("creepy-noise.wav");
-            
+              play("creepy-noise.wav");
+            System.out.println("dfsd");
             // 9. Play the sound
             
             // 10. Insert your completed Magic 8 ball code here
-            
+              int rando = new Random().nextInt(4);
+          	System.out.println(rando);
+          	JOptionPane.showInputDialog(null, "enter a yes or no question into the 8ball");
+          	if( rando == 0) {
+          		JOptionPane.showMessageDialog(null, "yeah.");
+          	}
+          	if( rando == 1) {
+          		JOptionPane.showMessageDialog(null, "def not loser.");
+          	}
+          	if( rando == 2) {
+          		JOptionPane.showMessageDialog(null, "so theres this thing called google. you should use it to the best of your abilities");
+          	}
+          	if( rando == 3) {
+          		JOptionPane.showMessageDialog(null, "your gay.");
+          	}
         }
 
     }

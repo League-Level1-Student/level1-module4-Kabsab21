@@ -137,7 +137,16 @@ fiveButton.addActionListener(this);
 
 			}
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
+		if(e.getSource() == fourthButton) {
+			 askQuestion("the answer to this question is more complex than jesus", "more complex than jesus",800);
+			 fourthButton.setText("");
 
+			}
+		if(e.getSource() == fiveButton) {
+			 askQuestion("the answer to this question is a literally impossible", "literally impossible",1000);
+			 fiveButton.setText("");
+
+			}
 		// If the buttonPressed was the secondButton
 
 			// Call the askQuestion() method with a harder question
