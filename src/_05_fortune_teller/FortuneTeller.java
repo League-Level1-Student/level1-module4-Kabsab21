@@ -43,8 +43,8 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
         // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
         
         // 7. Adjust your secret location co-ordinates here:
-        int secretLocationX = 0;
-        int secretLocationY = 0;
+        int secretLocationX = 100;
+        int secretLocationY = 100;
         
         // If the mouse co-ordinates and secret location are close, we'll let them ask a question.
         if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
@@ -52,24 +52,26 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
               play("creepy-noise.wav");
             System.out.println("dfsd");
             // 9. Play the sound
-            
-            // 10. Insert your completed Magic 8 ball code here
-              int rando = new Random().nextInt(4);
-          	System.out.println(rando);
-          	JOptionPane.showInputDialog(null, "enter a yes or no question into the 8ball");
-          	if( rando == 0) {
-          		JOptionPane.showMessageDialog(null, "yeah.");
-          	}
-          	if( rando == 1) {
-          		JOptionPane.showMessageDialog(null, "def not loser.");
-          	}
-          	if( rando == 2) {
-          		JOptionPane.showMessageDialog(null, "so theres this thing called google. you should use it to the best of your abilities");
-          	}
-          	if( rando == 3) {
-          		JOptionPane.showMessageDialog(null, "your gay.");
-          	}
+        if( mouseX == secretLocationX &&  mouseY == secretLocationY) {
+        	JOptionPane.showMessageDialog(null, "congrats, you found the secret location, (clapping)");
         }
+            // 10. Insert your completed Magic 8 ball code here
+            int rando = new Random().nextInt(4);
+          	System.out.println(rando);
+        	JOptionPane.showInputDialog(null, "enter a yes or no question into the 8ball");
+         	if( rando == 0) {
+       		JOptionPane.showMessageDialog(null, "yeah.");
+       	}
+       	if( rando == 1) {
+       		JOptionPane.showMessageDialog(null, "def not loser.");
+        	}
+       	if( rando == 2) {
+        		JOptionPane.showMessageDialog(null, "so theres this thing called google. you should use it to the best of your abilities");
+      	}
+        	if( rando == 3) {
+         		JOptionPane.showMessageDialog(null, "your gay.");
+          	}
+      }
 
     }
 
