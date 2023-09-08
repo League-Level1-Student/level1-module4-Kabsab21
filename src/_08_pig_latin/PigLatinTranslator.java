@@ -1,6 +1,66 @@
 package _08_pig_latin;
 
-public class PigLatinTranslator {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import game_tools.Sound;
+
+public class PigLatinTranslator implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JTextField Eng = new JTextField(30);
+	JTextField Pig = new JTextField(30);
+	JButton ep = new JButton();
+	JButton pe = new JButton();
+	JButton speak = new JButton();
+	public static void main(String[] args) {
+		PigLatinTranslator wuh = new PigLatinTranslator();
+		wuh.run();
+	}
+	void run() {
+	
+		ep.addActionListener(this);
+		pe.addActionListener(this);
+		speak.addActionListener(this);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Pig latin translator");
+		ep.setText("<-- english");
+		pe.setText("pig latin -->");
+		speak.setText("speak");
+		frame.add(panel);
+		panel.add(Eng);
+		panel.add(ep);
+		panel.add(pe);
+		panel.add(Pig);
+		panel.add(speak);
+		frame.pack();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton buttonPressed = (JButton) e.getSource();
+		
+		if(buttonPressed == pe) {
+			String idk =	translateEnglishToPigLatin(Eng.getText());
+			Pig.setText(idk);
+		}
+		
+		if(buttonPressed == ep) {
+			String idk =	translatePigLatinToEnglish(Pig.getText());
+			Eng.setText(idk);
+		}
+		
+		if(buttonPressed == speak) {
+			Sound.speak(Pig.getText());
+			
+		}
+		
+	}
     /**
      * Method to translate a english to pig latin.
      * 
@@ -120,4 +180,5 @@ public class PigLatinTranslator {
                 return i;
         return 0;
     }
+	
 }
