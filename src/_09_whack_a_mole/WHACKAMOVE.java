@@ -14,13 +14,17 @@ public class WHACKAMOVE implements ActionListener {
 	JButton button1 = new JButton();
 	JButton button2 = new JButton();
 	JButton button3 = new JButton();
+	Random r = new Random();
+	
 	
 	public static void main(String[] args) {
-		WHACKAMOLE mole = new WHACKAMOLE();
+		WHACKAMOVE mole = new WHACKAMOVE();
+		mole.run();
 		
 	}
 	
  void run() {
+	 
 	button1.addActionListener(this);
 	button2.addActionListener(this);
 	button3.addActionListener(this);
@@ -29,8 +33,11 @@ public class WHACKAMOVE implements ActionListener {
 	panel.add(button3);
 	frame.add(panel);
 	frame.setTitle("torchure");
+	drawButton(r.nextInt(3));
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.pack();
+	
 	
  }
  void drawButton(int rand) {
