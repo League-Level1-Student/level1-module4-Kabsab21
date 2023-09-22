@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class slot_thingy implements ActionListener {
@@ -34,6 +35,7 @@ public class slot_thingy implements ActionListener {
 		panel.add(label1);
 		panel.add(label2);
 		panel.add(label3);
+		
 		frame.pack();
 	}
 	
@@ -57,24 +59,49 @@ public class slot_thingy implements ActionListener {
 	}
 	public void setReel() throws MalformedURLException {
 		Random r = new Random();
-		int rr = r.nextInt(3);
+		int rr = r.nextInt(6);
 		if(rr == 0) {
 			System.out.println("0");
 			label1.setIcon( createLabelImage("cherry.jpeg"));
 			label2.setIcon( createLabelImage("cherry.jpeg"));
 			label3.setIcon( createLabelImage("cherry.jpeg"));
+			JOptionPane.showMessageDialog(null, "YOU WINNNNN!");
 		}
 		if(rr == 1) {
+			System.out.println("0");
+			label1.setIcon( createLabelImage("cherry.jpeg"));
+			label1.setIcon( createLabelImage("lime.jpeg"));
+			label1.setIcon( createLabelImage("orange.jpeg"));
+			
+		}
+		if(rr == 2) {
+			System.out.println("0");
+			label1.setIcon( createLabelImage("orange.jpeg"));
+			label2.setIcon( createLabelImage("cherry.jpeg"));
+			label1.setIcon( createLabelImage("lime.jpeg"));
+			
+		}
+		if(rr == 3) {
+			System.out.println("0");
+			label1.setIcon( createLabelImage("lime.jpeg"));
+			label1.setIcon( createLabelImage("orange.jpeg"));
+			label3.setIcon( createLabelImage("cherry.jpeg"));
+		
+		}
+		
+		if(rr == 4) {
 			System.out.println("1");
 			label1.setIcon( createLabelImage("orange.jpeg"));
 			label2.setIcon(createLabelImage("orange.jpeg"));
 			label3.setIcon( createLabelImage("orange.jpeg"));
+			JOptionPane.showMessageDialog(null, "YOU WINNNNN!");
 			}
-		if(rr == 2) {
+		if(rr == 5) {
 			System.out.println("2");
 			label1.setIcon( createLabelImage("lime.jpeg"));
 			label2.setIcon(createLabelImage("lime.jpeg"));
 			label3.setIcon( createLabelImage("lime.jpeg"));
+			JOptionPane.showMessageDialog(null, "YOU WINNNNN!");
 			}
 		
 	}
@@ -86,7 +113,7 @@ public class slot_thingy implements ActionListener {
 		return null;
 	}
 	ImageIcon icon = new ImageIcon(imageURL);
-	Image name = icon.getImage().getScaledInstance(400,400, Image.SCALE_SMOOTH);
+	Image name = icon.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
 	Icon ic = new ImageIcon(name);
 	
 	return ic;

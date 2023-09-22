@@ -61,14 +61,20 @@ public class WHACKAMOVE implements ActionListener {
  
  public void actionPerformed(ActionEvent e) {
 	 JButton buttonPressed = (JButton) e.getSource();
+	 Random r = new Random();
+		int rr = r.nextInt(3);
+	 drawButton(rr);
 	 if(buttonPressed == button1) {
 		 button1.setText("");
+		 drawButton(rr);
 	 }
 	 if(buttonPressed == button2) {
 		 button2.setText("");
+		 drawButton(rr);
 	 }
-	 if(buttonPressed == button2) {
-		 button2.setText("");
+	 if(buttonPressed == button3) {
+		 button3.setText("");
+		 drawButton(rr);
 	 }
  }
  
